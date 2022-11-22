@@ -1,10 +1,10 @@
-﻿//using Entities.Entity.Concrete;
-//using System.Security.Claims;
+﻿using Entities.Entity.Concrete;
+using System.Security.Claims;
 
-//namespace Core.Manager
-//{
-//    public interface IClaimsManager
-//    {
-//        public Task<ClaimsPrincipal> CreateClaim(UserNew webUser);
-//    }
-//}
+namespace Core.Manager
+{
+    public interface IClaimsManager
+    {
+        public Task<ClaimsPrincipal> CreateClaim(Users webUser);
+    }
+}

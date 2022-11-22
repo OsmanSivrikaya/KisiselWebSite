@@ -1,7 +1,9 @@
 ﻿//using MySites.Manager;
 using Autofac;
+using Core.Manager;
 //using Core.Manager;
 using Core.Repository.Concrete;
+using MySites.Manager;
 using Service.Services.Concrete;
 using System.Reflection;
 using Module = Autofac.Module;
@@ -24,8 +26,8 @@ namespace MySites.Modules
                    .AsImplementedInterfaces()
                    .InstancePerLifetimeScope();
 
-            //builder.RegisterType(typeof(ClaimsManager)).As(typeof(IClaimsManager)).InstancePerLifetimeScope();
-            //builder.RegisterType(typeof(AccessManager)).As(typeof(IAccessManager)).InstancePerLifetimeScope();
+            builder.RegisterType(typeof(ClaimsManager)).As(typeof(IClaimsManager)).InstancePerLifetimeScope();
+            builder.RegisterType(typeof(AccessManager)).As(typeof(IAccessManager)).InstancePerLifetimeScope();
         }
     }
 }
