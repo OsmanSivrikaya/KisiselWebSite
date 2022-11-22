@@ -1,1 +1,139 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.css" />
+<style>
+    table.dataTable > thead > tr {
+        text-align: center;
+        background-color: #17a2b8;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: white;
+    }
+
+    table.dataTable > tbody > tr {
+        background-color: white;
+    }
+
+    table.dataTable.table-hover > tbody > tr:hover > * {
+        background-color: white;
+    }
+</style>
+<div id="educationApp">
+
+    <div class="card card-info mt-3">
+        <div class="card-header">
+            <h3 class="card-title">Dil Ekle</h3>
+        </div>
+
+        <div class="card-body">
+            <form v-on:submit.prevent="EducationEkle">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Adı</label>
+                            <input type="text" class="form-control" v-model="name" id="exampleInputEmail1" placeholder="Adınızı Giriniz" maxlength="50" required>
+                        </div>
+                    </div>
+                </div><!--name-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Soyadı</label>
+                            <input type="text" class="form-control" v-model="surname" id="exampleInputEmail1" placeholder="Soyadınızı Giriniz..">
+                        </div>
+                    </div>
+                </div><!--surname-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Doğum Günü</label>
+                            <input type="text" rows="4" max-rows="10" class="form-control" v-model="birthdate" id="exampleInputEmail1" placeholder="Doğum gününü Giriniz">
+                        </div>
+                    </div>
+                </div><!--birthdate-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Telefon Numarası</label>
+                            <input type="text" rows="4" max-rows="10" class="form-control" v-model="number" id="exampleInputEmail1" placeholder="Okul İle İlgili Açıklama Yazmak İsterseniz">
+                        </div>
+                    </div>
+                </div><!--number-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">EMail</label>
+                            <textarea type="text" rows="4" max-rows="10" class="form-control" v-model="email" id="exampleInputEmail1" placeholder="Okul İle İlgili Açıklama Yazmak İsterseniz"></textarea>
+                        </div>
+                    </div>
+                </div><!--email-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Facebook</label>
+                            <textarea type="text" rows="4" max-rows="10" class="form-control" v-model="facebook" id="exampleInputEmail1" placeholder="Okul İle İlgili Açıklama Yazmak İsterseniz"></textarea>
+                        </div>
+                    </div>
+                </div><!--facebook-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Twitter</label>
+                            <textarea type="text" rows="4" max-rows="10" class="form-control" v-model="twitter" id="exampleInputEmail1" placeholder="Okul İle İlgili Açıklama Yazmak İsterseniz"></textarea>
+                        </div>
+                    </div>
+                </div><!--twitter-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Instagram</label>
+                            <textarea type="text" rows="4" max-rows="10" class="form-control" v-model="instagram" id="exampleInputEmail1" placeholder="Okul İle İlgili Açıklama Yazmak İsterseniz"></textarea>
+                        </div>
+                    </div>
+                </div><!--instagram-->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">GitHub</label>
+                            <textarea type="text" rows="4" max-rows="10" class="form-control" v-model="github" id="exampleInputEmail1" placeholder="Okul İle İlgili Açıklama Yazmak İsterseniz"></textarea>
+                        </div>
+                    </div>
+                </div><!--github-->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">GitHub</label>
+                            <textarea type="text" rows="4" max-rows="10" class="form-control" v-model="googleMapsLink" id="exampleInputEmail1" placeholder="Okul İle İlgili Açıklama Yazmak İsterseniz"></textarea>
+                        </div>
+                    </div>
+                </div><!--googleMapsLink-->
+
+                <div>
+                    <button type="submit" class="btn btn-primary float-right">Kaydet</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <table class="table table-striped table-bordered table-hover nowrap" cellspacing="0" style="position: relative; overflow: auto; width: 100%;" id="educationTable">
+        <thead>
+            <tr>
+                <th>❌</th>                                <!--0-->
+                <th>✔</th>                                <!--1-->
+                <th>Id</th>                                <!--2-->
+                <th>Başlangıç Bitiş</th>                   <!--3-->
+                <th>Okul</th>                              <!--4-->
+                <th>Açıklama</th>                          <!--4-->
+                <th>👁</th>                               <!--5-->
+            </tr>
+        </thead>
+    </table>
+</div>
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.js"></script>
+<script src="~/PageEkstra/Education.js"></script>
+

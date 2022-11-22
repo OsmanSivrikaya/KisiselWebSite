@@ -1,9 +1,12 @@
 ﻿using Entities.Entity.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Abstract;
+using System.Data;
 
 namespace MySites.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SkillsController : Controller
     {
         private readonly ISkillsService _skillsService;

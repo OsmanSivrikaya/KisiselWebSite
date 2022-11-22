@@ -1,10 +1,13 @@
 ﻿using Entities.Entity.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Abstract;
 using Service.Services.Concrete;
+using System.Data;
 
 namespace MySites.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class LanguagesController : Controller
     {
         private readonly ILanguagesService _languageService;
