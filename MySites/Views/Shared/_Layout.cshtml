@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with JohnDoe landing page.">
+    <meta name="author" content="Devcrud">
+    <title>JohnDoe Landing page | Free Bootstrap 4.3.x landing page</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- font icons -->
+    <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+
+    <!-- Bootstrap + JohnDoe main styles -->
+    <link rel="stylesheet" href="/css/johndoe.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <div id="layoutApp">
+        <header class="header">
+            <div class="container">
+                <ul class="social-icons pt-3">
+                    <li class="social-item"><a class="social-link text-light" v-bind:href="facebook" target="_blank"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link text-light" v-bind:href="twitter" target="_blank"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link text-light" v-bind:href="instagram" target="_blank"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                    <li class="social-item"><a class="social-link text-light" v-bind:href="github" target="_blank"><i class="ti-github" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="header-content">
+                    <h4 class="header-subtitle">Merhaba, Ben</h4>
+                    <h1 class="header-title">Osman Sivrikaya</h1>
+                    <h6 class="header-mono">Junior Backend Developer</h6>
+                    <button class="btn btn-primary btn-rounded"><i class="ti-printer pr-2"></i>CV</button>
+                </div>
+            </div>
+        </header>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+            <div class="container">
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link">Anasayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">Hakkımda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#resume" class="nav-link">Özgeçmişim</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav brand">
+                        <img src="/imgs/avatar.jpg" alt="" class="brand-img">
+                        <li class="brand-txt">
+                            <h5 class="brand-title">John Doe</h5>
+                            <div class="brand-subtitle">Web Designer | Developer</div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#portfolio" class="nav-link">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#blog" class="nav-link">Blog</a>
+                        </li>
+                        <li class="nav-item last-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+        @RenderBody();
+    <div id="footerApp">
+        <div class="section contact" id="contact">
+            <div id="map" class="map"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="contact-form-card">
+                            <h4 class="contact-title">Mesaj Gönder</h4>
+                            <form action="">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="İsim *" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="email" placeholder="Email *" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="" placeholder="Mesaj *" rows="7" required></textarea>
+                                </div>
+                                <div class="form-group ">
+                                    <button type="submit" class="form-control btn btn-primary">Mesajı Gönder</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="contact-info-card">
+                            <h4 class="contact-title">İletişim Bilgileri</h4>
+                            <div class="row mb-2">
+                                <div class="col-1 pt-1 mr-1">
+                                    <i class="ti-mobile icon-md"></i>
+                                </div>
+                                <div class="col-10 ">
+                                    <h6 class="d-inline">Telefon Numarası : <br> <span class="text-muted">{{phone}}</span></h6>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-1 pt-1 mr-1">
+                                    <i class="ti-map-alt icon-md"></i>
+                                </div>
+                                <div class="col-10">
+                                    <h6 class="d-inline">Adres :<br> <span class="text-muted">{{address}}</span></h6>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-1 pt-1 mr-1">
+                                    <i class="ti-envelope icon-md"></i>
+                                </div>
+                                <div class="col-10">
+                                    <h6 class="d-inline">Email :<br> <span class="text-muted">{{email}}</span></h6>
+                                </div>
+                            </div>
+                            <ul class="social-icons pt-4">
+                                <li class="social-item"><a class="social-link text-dark" v-bind:href="facebook"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                                <li class="social-item"><a class="social-link text-dark" v-bind:href="twitter"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                                <li class="social-item"><a class="social-link text-dark" v-bind:href="instagram"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                                <li class="social-item"><a class="social-link text-dark" v-bind:href="github"><i class="ti-github" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        <footer class="footer py-3">
+            <div class="container">
+                <p class="small mb-0 text-light">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Created With <i class="ti-heart text-danger"></i> By <a href="http://devcrud.com" target="_blank"><span class="text-danger" title="Bootstrap 4 Themes and Dashboards">DevCRUD</span></a>
+                </p>
+            </div>
+        </footer>
+    
+
+    <!-- core  -->
+    <script src="/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Isotope  -->
+    <script src="/vendors/isotope/isotope.pkgd.js"></script>
+
+    <!-- Google mpas -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+
+    <!-- JohnDoe js -->
+    <script src="/js/johndoe.js"></script>
+    <script src="/PageEkstra/_Layout.js"></script>
+
+</body>
+</html>
